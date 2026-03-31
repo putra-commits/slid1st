@@ -1,0 +1,11 @@
+kind: AppHostingBackend
+# [DEBUG1ST] App Hosting Config v1.0
+runConfig:
+  minInstances: 0
+  maxInstances: 10
+  concurrency: 80
+  cpu: 1
+  memoryMiB: 512
+# environmentVariables:
+#   - variable: NEXT_PUBLIC_FIREBASE_API_KEY
+#     value: "your-api-key"
