@@ -2,9 +2,21 @@
 
 import { motion } from 'framer-motion';
 import { ArrowRight, Brain, Globe, Notebook, Share2 } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
 export default function Home() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    console.log("[DEBUG1ST] Home: Component mounted. Activating Sovereign UI...");
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return <div className="min-h-screen bg-[#0A0A10]" />;
+  }
+
   return (
     <main className="min-h-screen bg-[#0A0A10] text-[#ededed] overflow-hidden flex flex-col items-center">
       {/* Background blobs */}
