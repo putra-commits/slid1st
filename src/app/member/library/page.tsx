@@ -31,14 +31,14 @@ export default function LibraryPage() {
                {/* Authentic 3D Book Render */}
                <div className="relative w-[140px] h-[200px] mb-8 transition-transform duration-500 transform group-hover:-translate-y-4 group-hover:scale-105" style={{ perspective: '1200px' }}>
                    
-                   {/* 3D Container (Rotated to show right Pages edge) */}
-                   <div className="w-full h-full relative" style={{ transformStyle: 'preserve-3d', transform: 'rotateY(-25deg) rotateX(5deg)' }}>
+                   {/* 3D Container (Rotated sharper to show THICK right Pages edge) */}
+                   <div className="w-full h-full relative" style={{ transformStyle: 'preserve-3d', transform: 'rotateY(-40deg) rotateX(8deg)' }}>
                        
                        {/* Drop Shadow Base */}
                        <div className="absolute -bottom-2 -left-2 w-[110%] h-4 bg-black/30 blur-md" style={{ transform: 'translateZ(-20px)' }}></div>
 
                        {/* Front Cover */}
-                       <div className={`absolute inset-0 bg-gradient-to-br ${bgGradient} rounded-r-sm overflow-hidden border border-white/20`} style={{ transform: 'translateZ(15px)' }}>
+                       <div className={`absolute inset-0 bg-gradient-to-br ${bgGradient} rounded-r-sm overflow-hidden border border-white/20 shadow-xl`} style={{ transform: 'translateZ(20px)' }}>
                             {/* Abstract Image Overlay (Blend Mode for creativity) */}
                             <img src={ebook.coverImage} alt={ebook.title} className="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
                             
@@ -58,10 +58,10 @@ export default function LibraryPage() {
                        </div>
 
                        {/* Spine (Left side, mostly hidden by rotation, but creates depth) */}
-                       <div className={`absolute top-0 left-0 h-full w-[30px] bg-gradient-to-b ${bgGradient} filter brightness-75 border-y border-l border-white/10`} style={{ transformOrigin: 'left', transform: 'rotateY(-90deg) translateZ(15px)' }}></div>
+                       <div className={`absolute top-0 left-0 h-full w-[40px] bg-gradient-to-b ${bgGradient} filter brightness-75 border-y border-l border-white/10`} style={{ transformOrigin: 'left', transform: 'rotateY(-90deg) translateZ(20px)' }}></div>
 
                        {/* Pages (Right Edge - The white paper block!) */}
-                       <div className="absolute top-0 bottom-0 right-0 w-[30px] bg-[#f8f9fa] border-y border-r border-gray-300 flex" style={{ transformOrigin: 'right', transform: 'rotateY(90deg) translateZ(15px)' }}>
+                       <div className="absolute top-0 bottom-0 right-0 w-[40px] bg-[#f8f9fa] border-y border-r border-gray-300 flex" style={{ transformOrigin: 'right', transform: 'rotateY(90deg) translateZ(20px)' }}>
                            <div className="w-full h-full border-l border-r border-gray-200/50 flex flex-row justify-evenly px-0.5">
                                <div className="w-px h-full bg-gray-300"></div>
                                <div className="w-px h-full bg-gray-300 mt-1"></div>
@@ -70,7 +70,7 @@ export default function LibraryPage() {
                        </div>
                        
                        {/* Top Pages (Top Edge) */}
-                       <div className="absolute top-0 left-0 w-full h-[30px] bg-[#e9ecef] border border-gray-300" style={{ transformOrigin: 'top', transform: 'rotateX(90deg) translateZ(15px)' }}></div>
+                       <div className="absolute top-0 left-0 w-full h-[40px] bg-[#e9ecef] border border-gray-300" style={{ transformOrigin: 'top', transform: 'rotateX(90deg) translateZ(20px)' }}></div>
                    </div>
                </div>
 

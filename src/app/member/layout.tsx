@@ -8,8 +8,6 @@ export default function MemberLayout({ children }: { children: React.ReactNode }
       <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
         <div className="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-4">
-             <img src="/images/unmaha-logo.jpg" alt="UNMAHA Logo" className="h-8 rounded-sm object-contain" />
-             <div className="w-px h-8 bg-gray-300"></div>
              <div>
                  <Link href="/member/library" className="text-xl font-black text-[#1e3a8a] tracking-[0.2em] uppercase hover:text-amber-600 transition-colors flex items-center gap-2">
                     BERNAS <span className="text-amber-500 text-sm font-black tracking-widest">MEMBER</span>

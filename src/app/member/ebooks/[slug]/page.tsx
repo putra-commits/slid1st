@@ -19,7 +19,7 @@ export default async function EbookReaderPage({ params }: { params: Promise<{ sl
               <h1 className="text-3xl font-black text-white uppercase tracking-widest mb-4">Akses Terkunci</h1>
               <p className="text-slate-400 font-medium mb-12">Anda telah menikmati 3 Ebook gratis bulan ini. Ebook <strong>"{ebook.title}"</strong> termasuk dalam jajaran koleksi Premium Ouroboros.</p>
               
-              <div className="flex flex-col md:flex-row items-stretch justify-center gap-6">
+              <div className="flex flex-col md:flex-row items-stretch justify-center gap-6 mb-12">
                   {/* Single Ebook Tier */}
                   <button className="bg-slate-800 text-white border border-slate-700 px-6 py-3 rounded-xl hover:bg-slate-700 transition-colors w-full md:w-auto flex flex-col items-center justify-center">
                       <span className="text-[10px] text-slate-400 line-through font-medium mb-0.5">Harga Normal: Rp 50.000</span>
@@ -29,17 +29,50 @@ export default async function EbookReaderPage({ params }: { params: Promise<{ sl
                       </div>
                   </button>
 
-                  <div className="text-[10px] font-black uppercase text-slate-500">ATAU</div>
+                  <div className="text-[10px] font-black uppercase text-slate-500 flex items-center justify-center">ATAU</div>
 
-                  {/* Bundle Ebook Tier (Highlighted) */}
-                  <div className="relative w-full md:w-auto">
-                      <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-red-500 text-white text-[8px] font-black uppercase tracking-widest px-3 py-1 rounded-full z-10 whitespace-nowrap shadow-lg">
-                          MOST POPULAR BUNDLE
+                  {/* Bundle Tier */}
+                  <button className="relative bg-gradient-to-r from-amber-500 to-orange-500 text-slate-900 border border-amber-400 px-8 py-3 rounded-xl font-black text-sm hover:from-amber-400 hover:to-orange-400 transition-colors shadow-[0_0_30px_rgba(245,158,11,0.3)] w-full md:w-auto flex flex-col items-center justify-center">
+                      <div className="absolute -top-3 inset-x-0 flex justify-center">
+                          <span className="bg-red-600 text-white text-[8px] uppercase tracking-widest px-2 py-0.5 rounded-full shadow-md border border-red-500">Most Popular Bundle</span>
                       </div>
-                      <button className="relative bg-amber-500 text-slate-900 border-2 border-amber-400 px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-white hover:scale-105 transition-all w-full shadow-[0_0_30px_rgba(245,158,11,0.2)]">
-                          Buka Semua 8 Ebook (Rp 99.000)
-                      </button>
+                      <span className="text-sm mt-1">Buka Semua 8 Ebook (Rp 99.000)</span>
+                  </button>
+              </div>
+
+              {/* Upsell Bonus Ticket */}
+              <div className="bg-gradient-to-r from-amber-500 to-orange-600 rounded-xl p-6 md:p-8 mb-8 text-white shadow-[0_10px_30px_rgba(245,158,11,0.2)] text-left">
+                  <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
+                      <div className="text-5xl drop-shadow-md">🎟️</div>
+                      <div>
+                          <h4 className="text-xl md:text-2xl font-black uppercase tracking-widest mb-1 drop-shadow-sm">SUPER BONUS UNLOCK</h4>
+                          <p className="text-white/95 text-sm md:text-base leading-relaxed mb-3">Setiap pembelian <b>Bundle 8 Ebook</b>, Anda otomatis mendapatkan VOUCHER senilai <b>Rp 500.000</b> untuk layanan SEO & Konsultasi Growth Hacking eksklusif dari <b>Agenc1st</b>!</p>
+                          <div className="inline-block bg-white text-orange-600 text-[10px] font-black uppercase tracking-[0.2em] px-3 py-1 rounded shadow-sm">Terbatas Bulan Ini</div>
+                      </div>
                   </div>
+              </div>
+
+              {/* Bundle Contents Listing (Mini LP) */}
+              <div className="text-left bg-slate-900/50 border border-slate-800 rounded-2xl p-6 md:p-8">
+                  <h3 className="text-lg md:text-xl font-black text-white uppercase tracking-widest mb-6">Yang Anda Dapatkan di Bundle Kedaulatan:</h3>
+                  <ul className="space-y-4">
+                      {DIGITAL_LIBRARY.filter(b => !b.isUnlocked).map((b, i) => (
+                          <li key={b.id} className="flex gap-4">
+                              <span className="text-amber-500 mt-0.5 bg-amber-500/10 w-6 h-6 flex items-center justify-center rounded-full text-xs font-black shrink-0">{i + 1}</span>
+                              <div>
+                                  <h4 className="text-white font-bold text-sm">{b.title}</h4>
+                                  <p className="text-slate-400 text-xs mt-1 leading-relaxed hidden md:block">{b.description}</p>
+                              </div>
+                          </li>
+                      ))}
+                      <li className="flex gap-4 p-4 mt-6 bg-slate-800/80 rounded-xl border border-amber-500/30">
+                          <span className="text-amber-500 mt-0.5 text-lg">🎁</span>
+                          <div>
+                              <h4 className="text-amber-500 font-black uppercase tracking-widest text-sm mb-1">Voucher Agenc1st Rp 500.000</h4>
+                              <p className="text-slate-300 text-xs leading-relaxed">Potongan harga eksklusif untuk layanan Jasa SEO, Pembuatan Web Organik Eksekutif, hingga Riset Data Driven Marketing tingkat dewa bersama Agenc1st.</p>
+                          </div>
+                      </li>
+                  </ul>
               </div>
           </div>
       );
