@@ -12,10 +12,10 @@ export default function MemberLayout({ children }: { children: React.ReactNode }
              <img src="/images/unmaha-logo.jpg" alt="UNMAHA Logo" className="h-8 rounded-sm object-contain bg-white p-1" />
              <div className="w-px h-8 bg-slate-800"></div>
              <div>
-                 <Link href="/member/library" className="text-xl font-black text-white tracking-widest uppercase hover:text-amber-500 transition-colors">
-                    Slid<span className="text-amber-500">1st</span> Member
+                 <Link href="/member/library" className="text-xl font-black text-white tracking-[0.2em] uppercase hover:text-amber-500 transition-colors flex items-center gap-2">
+                    BERNAS <span className="text-amber-500 text-sm font-black tracking-widest">MEMBER</span>
                  </Link>
-                 <span className="block text-[8px] font-bold uppercase tracking-[0.2em] text-slate-400">UNMAHA Digital Library</span>
+                 <span className="block text-[8px] font-bold uppercase tracking-[0.2em] text-slate-400">BERNAS Digital Library</span>
              </div>
           </div>
           <div className="flex items-center gap-6">

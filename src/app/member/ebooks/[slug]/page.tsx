@@ -83,6 +83,23 @@ export default async function EbookReaderPage({ params }: { params: Promise<{ sl
          ) : (
              <div className="text-center py-24 text-slate-500 font-medium">Naskah sedang dalam tahap penyusunan oleh Editor BERNAS.</div>
          )}
+         
+         {/* Author Profile Box */}
+         {ebook.author.includes("Putu Putrayasa") && (
+            <div className="mt-16 pt-12 border-t border-slate-800 flex flex-col sm:flex-row gap-6 md:gap-8 items-start bg-slate-900/50 p-6 md:p-8 rounded-2xl">
+                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=256" alt="Putu Putrayasa, S.T., M.Kom." className="w-24 h-24 md:w-32 md:h-32 object-cover rounded-full border-4 border-slate-800 shadow-xl grayscale hover:grayscale-0 transition-all duration-500" />
+                <div>
+                   <h3 className="text-xl md:text-2xl font-black text-white tracking-tight mb-1">Putu Putrayasa, S.T., M.Kom.</h3>
+                   <p className="text-amber-500 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] mb-4">Founder UNMAHA, BERNAS.id & Agenc1st</p>
+                   <p className="text-slate-400 font-medium leading-relaxed mb-6 text-sm md:text-base">
+                     Sebagai pionir kedaulatan data dan pendidikan ekosistem digital di Indonesia, beliau memimpin The Sovereign Ecosystem yang menaungi <strong>Universitas Mahakarya Asia (UNMAHA)</strong>, BERNAS.id, Alchem1st, hingga Mahakarya Lab. Dengan visi besar mengawinkan literasi <i>technopreneurship</i> dan jurnalisme intelektual, misi utamanya adalah mencetak jutawan-jutawan digital generasi baru yang mengendalikan teknologi (AI Agents & Automations), bukan yang dikendalikan olehnya.
+                   </p>
+                   <a href="https://id.linkedin.com/in/putuputrayasa" target="_blank" rel="noreferrer" className="inline-flex items-center text-xs font-bold text-white bg-[#0a66c2] px-5 py-2.5 rounded hover:bg-[#004182] transition-colors shadow-[0_0_15px_rgba(10,102,194,0.3)]">
+                       Terhubung di LinkedIn
+                   </a>
+                </div>
+            </div>
+         )}
       </article>
     </div>
   );
