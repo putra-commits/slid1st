@@ -14,49 +14,34 @@ export default function LibraryPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {DIGITAL_LIBRARY.map((ebook, idx) => (
           <Link key={ebook.id} href={`/member/ebooks/${ebook.slug}`} className="group flex flex-col bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-amber-500/50 transition-all shadow-xl hover:shadow-amber-500/10">
-             {/* Hyper-Realistic 3D Book Thumbnail Area */}
-             <div className="relative h-72 bg-[#0a0a0e] flex items-center justify-center p-6 border-b border-slate-800/50 overflow-hidden">
-                {/* Abstract background blur */}
-                <div className="absolute inset-0 bg-amber-500/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-                
-                {/* 3D Book Container */}
-                <div className="relative w-36 h-48 [perspective:1000px] z-10 transition-transform duration-700 ease-out group-hover:-translate-y-2 group-hover:scale-105 group">
-                    {/* The Book (rotated to show spine) */}
-                    <div className="w-full h-full relative [transform-style:preserve-3d] [transform:rotateY(25deg)] group-hover:[transform:rotateY(15deg)] transition-all duration-700">
-                        
-                        {/* FRONT COVER */}
-                        <div className="absolute inset-0 bg-slate-900 rounded-r-md overflow-hidden shadow-2xl [transform:translateZ(15px)] border border-slate-700">
-                            {/* Texture Image */}
-                            <img src={ebook.coverImage} alt={ebook.title} className="w-full h-full object-cover mix-blend-overlay opacity-60" />
-                            
-                            {/* Typography Overlay (Makes it look like a real book) */}
-                            <div className="absolute inset-0 p-4 flex flex-col justify-end bg-gradient-to-t from-slate-950 via-slate-900/60 to-transparent">
-                                <h4 className="text-white font-black leading-snug text-sm drop-shadow-md mb-1">{ebook.title}</h4>
-                                <p className="text-amber-500 font-bold text-[8px] uppercase tracking-widest drop-shadow-md">By {ebook.author}</p>
-                            </div>
+             {/* Premium Book Thumbnail Area (Kindle Style) */}
+             <div className="relative h-72 bg-slate-900 border-b border-slate-800 flex items-center justify-center p-6 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-b from-slate-800/50 to-slate-900 z-0"></div>
 
-                            {/* Glossy shine */}
-                            <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/10 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
-                        </div>
-
-                        {/* SPINE (Left Edge) */}
-                        <div className="absolute top-0 left-0 h-full w-[30px] bg-slate-800 border-r border-slate-700 border-y py-3 [transform-origin:left] [transform:rotateY(-90deg)_translateZ(15px)] flex items-center justify-center overflow-hidden rounded-l-sm shadow-[inset_-5px_0_10px_rgba(0,0,0,0.5)]">
-                            <span className="text-[7px] text-slate-300 font-black uppercase tracking-widest transform -rotate-90 whitespace-nowrap drop-shadow-md">{ebook.title}</span>
-                        </div>
-
-                        {/* Drop Shadow Base */}
-                        <div className="absolute -bottom-4 -left-4 w-[120%] h-4 bg-black/80 blur-xl [transform:translateZ(-10px)]"></div>
+                {/* Book Object */}
+                <div className="relative w-[130px] h-[180px] z-10 transition-transform duration-500 ease-in-out group-hover:scale-105 group-hover:-translate-y-2 shadow-[0_20px_40px_rgba(0,0,0,0.6)] rounded-sm border border-slate-700 overflow-hidden bg-slate-950">
+                    <img src={ebook.coverImage} alt={ebook.title} className="absolute inset-0 w-full h-full object-cover opacity-70 mix-blend-overlay group-hover:opacity-100 group-hover:mix-blend-normal transition-all duration-500" />
+                    
+                    {/* Typography Overlay */}
+                    <div className="absolute inset-0 flex flex-col justify-end p-4 bg-gradient-to-t from-slate-950 via-slate-900/80 to-transparent">
+                        <h4 className="text-white font-black leading-tight text-xs drop-shadow-lg mb-1.5 line-clamp-3">{ebook.title}</h4>
+                        <div className="w-4 h-0.5 bg-amber-500 mb-1.5"></div>
+                        <p className="text-amber-500 font-bold text-[7px] uppercase tracking-widest drop-shadow-md">Putu Putrayasa</p>
                     </div>
+
+                    {/* Book Highlight / Gloss */}
+                    <div className="absolute top-0 left-0 bottom-0 w-8 bg-gradient-to-r from-white/20 via-transparent to-transparent"></div>
+                    <div className="absolute top-0 right-0 bottom-0 w-[1px] bg-white/20"></div>
                 </div>
 
                 {/* Badge Overlay (Top Left) */}
-                <div className="absolute top-4 left-4 z-20 bg-slate-900/90 backdrop-blur-sm text-white text-[9px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full border border-slate-700 shadow-md">
+                <div className="absolute top-4 left-4 z-20 bg-slate-900/90 backdrop-blur-sm text-white text-[9px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full border border-slate-700 shadow-xl">
                     {ebook.category}
                 </div>
 
                 {/* Status Indicator (Top Right) */}
                 {!ebook.isUnlocked && (
-                   <div className="absolute top-4 right-4 z-20 bg-gradient-to-r from-red-600 to-rose-500 text-white text-[9px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full shadow-[0_0_15px_rgba(225,29,72,0.6)] border border-red-400/50">
+                   <div className="absolute top-4 right-4 z-20 bg-red-500 text-white text-[9px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full shadow-[0_0_20px_rgba(239,68,68,0.4)] border border-red-500/50">
                      🔒 Premium
                    </div>
                 )}

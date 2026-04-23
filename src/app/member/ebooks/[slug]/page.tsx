@@ -19,10 +19,14 @@ export default async function EbookReaderPage({ params }: { params: Promise<{ sl
               <h1 className="text-3xl font-black text-white uppercase tracking-widest mb-4">Akses Terkunci</h1>
               <p className="text-slate-400 font-medium mb-12">Anda telah menikmati 3 Ebook gratis bulan ini. Ebook <strong>"{ebook.title}"</strong> termasuk dalam jajaran koleksi Premium Ouroboros.</p>
               
-              <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+              <div className="flex flex-col md:flex-row items-stretch justify-center gap-6">
                   {/* Single Ebook Tier */}
-                  <button className="bg-slate-800 text-white border border-slate-700 px-6 py-4 rounded-xl font-bold text-sm hover:bg-slate-700 transition-colors w-full md:w-auto">
-                      Unlock Ebook Ini (Rp 20.000)
+                  <button className="bg-slate-800 text-white border border-slate-700 px-6 py-3 rounded-xl hover:bg-slate-700 transition-colors w-full md:w-auto flex flex-col items-center justify-center">
+                      <span className="text-[10px] text-slate-400 line-through font-medium mb-0.5">Harga Normal: Rp 50.000</span>
+                      <div className="flex items-center justify-center gap-2">
+                        <span className="text-sm font-bold">Unlock Ebook Ini (Rp 20.000)</span>
+                        <span className="bg-red-500/20 text-red-400 text-[10px] font-black px-1.5 py-0.5 rounded border border-red-500/30">-60%</span>
+                      </div>
                   </button>
 
                   <div className="text-[10px] font-black uppercase text-slate-500">ATAU</div>
