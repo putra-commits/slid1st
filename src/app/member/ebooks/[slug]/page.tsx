@@ -1,16 +1,46 @@
-import { notFound } from 'next/navigation';
+"use client";
+
+import { notFound, useParams } from 'next/navigation';
+import { useState, useEffect } from 'react';
 import { DIGITAL_LIBRARY } from '@/lib/mock-ebooks';
 
-export default async function EbookReaderPage({ params }: { params: Promise<{ slug: string }> }) {
-  const resolvedParams = await params;
-  const ebook = DIGITAL_LIBRARY.find((e) => e.slug === resolvedParams.slug);
+export default function EbookReaderPage() {
+  const params = useParams();
+  const slug = params.slug as string;
+  const ebook = DIGITAL_LIBRARY.find((e) => e.slug === slug);
+
+  const [isUnlocked, setIsUnlocked] = useState<boolean | null>(null);
+  const [justClaimed, setJustClaimed] = useState(false);
+
+  useEffect(() => {
+    if (!ebook) return;
+
+    const claimed = localStorage.getItem('bernas_claimed_ebook');
+    if (!claimed) {
+      // Automatic claim of the very first book they read!
+      localStorage.setItem('bernas_claimed_ebook', ebook.id);
+      setIsUnlocked(true);
+      setJustClaimed(true);
+    } else {
+      if (claimed === ebook.id) {
+        setIsUnlocked(true);
+      } else {
+        setIsUnlocked(false);
+      }
+    }
+  }, [ebook]);
 
   if (!ebook) {
     notFound();
   }
 
+  // Prevent hydration bounce by ensuring we know unlock state before rendering
+  if (isUnlocked === null) {
+      return <div className="min-h-screen bg-[#f8fafc] flex items-center justify-center text-[#1e3a8a] font-bold">Memverifikasi Otoritas Akses...</div>;
+  }
+
   // Auth Gate Simulation for locked content
-  if (!ebook.isUnlocked) {
+  if (!isUnlocked) {
       return (
           <div className="max-w-3xl mx-auto px-6 py-24 text-center">
               <div className="w-20 h-20 bg-red-500/10 border border-red-500/50 rounded-full flex items-center justify-center mx-auto mb-8">
@@ -121,6 +151,16 @@ export default async function EbookReaderPage({ params }: { params: Promise<{ sl
 
       {/* Main Reader Content */}
       <article className="bg-white rounded-2xl border border-gray-200 p-5 md:p-10 lg:p-16 shadow-xl min-h-screen">
+         
+         {justClaimed && (
+             <div className="mb-10 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-2xl p-6 md:p-8 text-white shadow-lg border-2 border-emerald-300">
+                 <h3 className="text-xl md:text-2xl font-black uppercase tracking-widest mb-2 flex items-center gap-3">
+                   <span className="text-3xl">🎉</span> Klaim Berhasil!
+                 </h3>
+                 <p className="font-medium text-emerald-50 text-sm md:text-base leading-relaxed">Anda telah berhasil mengklaim Ebook <b>"{ebook.title}"</b> senilai Rp 50.000 secara <b>100% Gratis</b>! Jatah 1 Ebook Gratis Premium harian/bulanan Anda sudah digunakan. Untuk mambaca koleksi Ebook lainnya di perpustakaan, Anda kini harus meng-Upgrade ke Bundle Ouroboros.</p>
+             </div>
+         )}
+
          {ebook.fullHtmlContent ? (
              <div className="prose prose-base md:prose-lg max-w-none 
                  prose-p:font-medium prose-p:text-gray-700 prose-p:leading-relaxed md:prose-p:leading-loose

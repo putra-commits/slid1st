@@ -1,4 +1,7 @@
+"use client";
+
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
 import { DIGITAL_LIBRARY } from '@/lib/mock-ebooks';
 
 export default function LibraryPage() {
@@ -15,12 +18,34 @@ export default function LibraryPage() {
     "from-fuchsia-600 to-purple-900",
   ];
 
+  const [claimedEbookId, setClaimedEbookId] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    const claimed = localStorage.getItem('bernas_claimed_ebook');
+    if (claimed) {
+      setClaimedEbookId(claimed);
+    }
+  }, []);
+
+  if (!mounted) return null;
+
   return (
     <div className="max-w-[1400px] mx-auto px-6 py-12">
-      <div className="mb-12">
+      <div className="mb-10">
         <h1 className="text-4xl md:text-5xl font-black text-[#1e3a8a] uppercase tracking-tight mb-4">Pustaka Digital</h1>
         <p className="text-gray-500 font-medium text-lg max-w-2xl">Akses eksklusif mahakarya literatur dan cetak biru bisnis digital dari Sovereign Ecosystem BERNAS.id.</p>
       </div>
+
+      {!claimedEbookId && (
+        <div className="bg-gradient-to-r from-emerald-500 to-teal-600 rounded-2xl p-6 md:p-8 mb-10 text-white shadow-lg animate-pulse border-2 border-emerald-300">
+            <h3 className="text-2xl md:text-3xl font-black uppercase tracking-widest mb-2 drop-shadow-md flex items-center gap-3">
+              <span className="text-4xl">🎁</span> Klaim Hak Istimewa Anda!
+            </h3>
+            <p className="font-medium text-emerald-50 text-lg">Anda berhak memilih <b>TEPAT 1 EBOOK PREMIUM</b> dari perpustakaan ini secara 100% Gratis. Silakan tentukan senjata rahasia bisnis Anda dengan bijak, karena pilihan tidak dapat dibatalkan.</p>
+        </div>
+      )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-12">
         {DIGITAL_LIBRARY.map((ebook, idx) => {
@@ -89,8 +114,10 @@ export default function LibraryPage() {
                          {ebook.category}
                       </span>
                       
-                      {ebook.isUnlocked ? (
-                         <span className="text-[9px] uppercase font-black tracking-widest text-emerald-600 bg-emerald-50 border border-emerald-100 px-2 py-1 rounded">Gratis</span>
+                      {!claimedEbookId ? (
+                         <span className="text-[8px] uppercase font-black tracking-widest text-emerald-600 bg-teal-50 border border-teal-200 px-2 py-1 rounded shadow-sm animate-pulse">100% Bebas Pilih</span>
+                      ) : claimedEbookId === ebook.id ? (
+                         <span className="text-[9px] uppercase font-black tracking-widest text-emerald-600 bg-emerald-50 border border-emerald-100 px-2 py-1 rounded">Di-Klaim</span>
                       ) : (
                          <div className="flex items-center gap-1 text-rose-600 font-black text-[9px] uppercase tracking-widest bg-rose-50 border border-rose-100 px-2 py-1 rounded shadow-sm">
                             <span>🔒</span> Premium
