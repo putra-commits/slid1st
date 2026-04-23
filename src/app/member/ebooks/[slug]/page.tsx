@@ -1,8 +1,9 @@
 import { notFound } from 'next/navigation';
 import { DIGITAL_LIBRARY } from '@/lib/mock-ebooks';
 
-export default function EbookReaderPage({ params }: { params: { slug: string } }) {
-  const ebook = DIGITAL_LIBRARY.find((e) => e.slug === params.slug);
+export default async function EbookReaderPage({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params;
+  const ebook = DIGITAL_LIBRARY.find((e) => e.slug === resolvedParams.slug);
 
   if (!ebook) {
     notFound();
