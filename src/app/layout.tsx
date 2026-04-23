@@ -17,8 +17,8 @@ import "./globals.css";
 
 // [DEBUG1ST] Standard Metadata
 export const metadata: Metadata = {
-  title: "Slid1st - Agentic AI Mastery & Remote Talent",
-  description: "Ilmu Daging: Menuju Middle Class Global dengan Keahlian IT & Agentic AI.",
+  title: "BERNAS Member | Sovereign Digital Library",
+  description: "Akses eksklusif mahakarya literatur dan cetak biru bisnis digital dari Sovereign Ecosystem BERNAS.id.",
 };
 
 export default function RootLayout({
