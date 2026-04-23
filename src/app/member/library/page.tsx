@@ -75,18 +75,28 @@ export default function LibraryPage() {
                </div>
 
                {/* Meta Info */}
-               <div className="w-full text-center mt-auto flex flex-col items-center gap-2">
-                  <span className="text-[9px] font-black uppercase tracking-widest text-[#1e3a8a] border border-[#1e3a8a]/20 px-3 py-1 rounded-full">
-                     {ebook.category}
-                  </span>
+               <div className="w-full flex flex-col gap-4 mt-auto pt-2">
+                  <div className="w-full text-left">
+                      <p className="text-[11px] text-gray-600 leading-relaxed font-medium line-clamp-4 italic border-l-2 border-amber-500 pl-3">
+                         "{ebook.description}"
+                      </p>
+                  </div>
                   
-                  {ebook.isUnlocked ? (
-                     <span className="text-xs font-bold text-gray-500 mt-1">Tersedia (Gratis)</span>
-                  ) : (
-                     <div className="flex items-center gap-1.5 mt-1 text-rose-600 font-bold text-xs">
-                        <span className="text-[10px]">🔒</span> Premium
-                     </div>
-                  )}
+                  <div className="w-full h-px bg-gray-100"></div>
+
+                  <div className="w-full flex items-center justify-between">
+                      <span className="text-[8px] font-black uppercase tracking-widest text-[#1e3a8a] bg-blue-50 px-2 py-1 rounded-full border border-blue-100/50">
+                         {ebook.category}
+                      </span>
+                      
+                      {ebook.isUnlocked ? (
+                         <span className="text-[9px] uppercase font-black tracking-widest text-emerald-600 bg-emerald-50 border border-emerald-100 px-2 py-1 rounded">Gratis</span>
+                      ) : (
+                         <div className="flex items-center gap-1 text-rose-600 font-black text-[9px] uppercase tracking-widest bg-rose-50 border border-rose-100 px-2 py-1 rounded shadow-sm">
+                            <span>🔒</span> Premium
+                         </div>
+                      )}
+                  </div>
                </div>
             </Link>
           );
