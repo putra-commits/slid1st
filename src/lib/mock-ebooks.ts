@@ -24,7 +24,7 @@ export const DIGITAL_LIBRARY: EbookMetadata[] = [
     isUnlocked: true,
     pages: 45,
     readTimeMin: 30,
-    description: "Blueprint membangun Micro-SaaS bernilai raksasa tanpa perlu menulis satu baris kode pemrograman rumit. Kuasai AI Agent, perintahkan mesin layaknya CTO, dan tuai profit secara pasif.",
+    description: "Ini bukan panduan teknis yang membosankan. Ini adalah langkah konkrit mendelegasikan ratusan jam coding kepada robot AI Agent, sehingga Anda bisa fokus pada satu-satunya hal yang penting: Monetisasi Valuasi. Pelajari anatomi Front-end hingga arsitektur Database yang siap diserap algoritma generasi terbaru. Di sinilah rahasia bagaimana seorang pemula merakit sistem yang mendistorsi pasar dengan kecepatan cahaya. Jika Anda belum pernah mencapai Rp 50 Juta per bulan pertama Anda, ebook inilah kompas mutlak Anda.",
     tableOfContents: [
       { title: "Mukadimah: The Paradigm Shift", pageStr: "Pg. 1" },
       { title: "BAB 1: Dekonstruksi Ekosistem Vibe Coding", pageStr: "Pg. 5", isActive: true },
@@ -85,7 +85,7 @@ export const DIGITAL_LIBRARY: EbookMetadata[] = [
     isUnlocked: false,
     pages: 60,
     readTimeMin: 45,
-    description: "Bongkar rahasia di balik layar bagaimana membangun agensi web dan media. Dipersembahkan oleh Agenc1st: The Ultimate B2B Growth Engine. Kolaborasi dengan kampus TeFa untuk leverage massal."
+    description: "Mayoritas digital agency hancur di tahun pertama karena bertumpu pada margin yang tipis dan sistem akuisisi klien yang leher botol. Di dalam buku rahasia The Agenc1st Blueprint, Anda akan dibekali rancang bangun infrastruktur B2B Growth Engine tercangih. Belajar bagaimana mengeksploitasi kampus TeFa (Teaching Factory) untuk melipatgandakan tim operasional secara eksponensial dengan modal minimal. Jika Anda serius membangun valuasi bisnis hingga Rp1 Miliar, seluruh SOP dan kerangka negosiasi penutupan transaksi kaliber dewa telah kami buka secara gamblang di sini."
   },
   {
     id: "eb-003",
@@ -97,7 +97,7 @@ export const DIGITAL_LIBRARY: EbookMetadata[] = [
     isUnlocked: false,
     pages: 42,
     readTimeMin: 25,
-    description: "Teknik melahirkan ribuan URL SEO secara presisi. Didukung oleh BERNAS.100 & Pilar1st Engine: Mesin Fabrikasi Kedaulatan Data Regional."
+    description: "Lupakan membakar uang puluhan juta di Facebook atau Google Ads. Selamat datang di era Trafik Gelap yang dikendalikan oleh BERNAS.100. Buku ini mengupas tuntas teknik kotor namun legal dalam melahirkan ribuan URL SEO yang mengangkangi posisi halaman satu mesin pencari. Pelajari integrasi Pilar1st Engine, strategi fabrikasi artikel masif berbasis AI, dan manipulasi kedaulatan data regional. Inilah fondasi bagaimana 1.000 pengunjung organik mendarat di keranjang belanja Anda setiap harinya tanpa henti."
   },
   {
     id: "eb-004",
@@ -109,7 +109,7 @@ export const DIGITAL_LIBRARY: EbookMetadata[] = [
     isUnlocked: true,
     pages: 55,
     readTimeMin: 40,
-    description: "Dari BERNAS.id: Pencerahan Warta, Sejarah Bangsa. Mempersenjatai website Anda dengan Generative Engine Optimization (GEO) layaknya nabi teknologi."
+    description: "Ketika algoritma Google terus berubah tanpa permisi, Anda membutuhkan kerangka Generative Engine Optimization (GEO) tingkat tinggi. Omni-Salesman merangkung metode trinitas SEO, GEO & AEO yang diadopsi dari arsitektur raksasa media berita BERNAS.id. Anda tidak hanya diajarkan menulis untuk manusia, tapi memprogram psikologi mesin pencari agar mengkultuskan nama brand Anda. Jadikan website Anda bukan sekadar brosur digital, melainkan salesman gaib yang berjualan di 100 negara secara bersamaan saat Anda tertidur."
   },
   {
     id: "eb-005",
@@ -121,7 +121,7 @@ export const DIGITAL_LIBRARY: EbookMetadata[] = [
     isUnlocked: false,
     pages: 35,
     readTimeMin: 20,
-    description: "Facebook bisa diblokir. Instagram bisa jatuh algoritmanya. Tetapi daftar email yang loyal senantiasa menjadi mesin ATM tak terbatas di genggaman Anda."
+    description: "Berapa kerugian Anda jika akun Instagram dengan 100K Followers Anda dibanned oleh META hari ini? Sovereign Data akan menyadarkan Anda betapa fatalnya membangun aset di atas tanah sewaan platform asing. Di sini Anda akan dijajali strategi gila tentang membangun Email List miliaran rupiah sebagai bunker terakhir keamanan bisnis Anda. Pelajari funnel akuisisi, psikologi penulisan Subjek Email yang tak tertolak, dan kerangka The Aegis Shield untuk memastikan Anda mencetak uang hanya dengan menekan satu tombol 'Send'."
   },
   {
     id: "eb-006",
@@ -133,7 +133,7 @@ export const DIGITAL_LIBRARY: EbookMetadata[] = [
     isUnlocked: true,
     pages: 50,
     readTimeMin: 35,
-    description: "Belajar menulis untuk menjual. Bagaimana mengubah struktur kalimat yang monoton menjadi jaring yang membuat audiens tak sanggup untuk tidak membeli."
+    description: "Sebagus apapun produk Anda, jika Anda gagal melukiskannya dengan kata-kata, Anda hanya akan berakhir sebagai barang rongsokan di etalase internet. Copywriting 101 adalah jarum hipnotis yang akan saya tanamkan ke dalam kepala Anda. Anda akan menguasai cara memenggal penolakan audiens sejak tiga detik pertama mereka membaca Headline Anda. Buku ini bukan tentang menata kata yang indah, tapi meretas sistem limbik dan dopamin manusia agar mereka berdesakan mengeluarkan kartu kreditnya untuk Anda."
   },
   {
     id: "eb-007",
@@ -145,7 +145,7 @@ export const DIGITAL_LIBRARY: EbookMetadata[] = [
     isUnlocked: false,
     pages: 38,
     readTimeMin: 25,
-    description: "Cara cerdas membangun aplikasi tangguh dengan MRR eksponensial. Diorkestrasikan melalui Alchem1st: Konverter Algoritma Menjadi Emas Digital."
+    description: "Mengejar proyek sekali putus adalah model bisnis kaum pekerja keras. Namun, mengumpulkan pendapatan langganan bulanan berulang (MRR) adalah strategi para maharaja perangkat lunak. Ebook ini membedah anatomi cerdas membangun aplikasi SaaS (Software as a Service) berskala mikro namun berpenghasilan makro. Dengan orkestrasi metodologi Alchem1st, Anda akan diajarkan cara mengubah kode mentah algoritma menjadi mesin penyedot emas digital yang mengunci klien Anda secara permanen."
   },
   {
     id: "eb-008",
@@ -157,7 +157,7 @@ export const DIGITAL_LIBRARY: EbookMetadata[] = [
     isUnlocked: false,
     pages: 32,
     readTimeMin: 20,
-    description: "Analisis Social Mining menggunakan B-Points Bernas.id untuk menyuap audiens lokal agar mensponsori konten Anda secara massal tanpa Ads."
+    description: "Jangan bayar Influencer (KOL) ratusan juta jika Anda tidak paham cara menunggangi arus algoritma mereka. Influencer Mining dari lab BERNAS.id akan mendobrak kepala Anda tentang efisiensi Social Mining. Gunakan integrasi B-Points untuk menciptakan kerumunan buatan yang bersedia men-sponsori dan mem-viralkan konten Anda secara militan. Temukan pola memanipulasi audiens loka, agar mereka rela melakukan 'Word of Mouth' pemasaran terselubung berskala nasional tanpa budget Ads."
   },
   {
     id: "eb-009",
@@ -169,7 +169,7 @@ export const DIGITAL_LIBRARY: EbookMetadata[] = [
     isUnlocked: false,
     pages: 65,
     readTimeMin: 50,
-    description: "Buku panduan resmi rektorat UNMAHA (Universitas Mahakarya Asia: Entrepreneur University). Mengubah kurikulum tugas akhir menjadi proyek monetisasi B2B berskala masif."
+    description: "Sebuah strategi 'brute force' yang meresmikan kolaborasi antara dunia industri kapitalistik dan kurikulum akademis Universitas Mahakarya Asia (UNMAHA). Temukan cara memanfaatkan Teaching Factory (TeFa) guna mengubah mahasiwa semester akhir menjadi prajurit sales dan operasional B2B yang fanatik. Ebook saksi bisu ini mengurai kerangka teknis rektorat dalam menjembatani kelangkaan SDM murah nan jenius bagi perusahaan Anda, menciptakan rantai pasokan profit abadi dari garis depan bangku perkuliahan."
   },
   {
     id: "eb-010",
@@ -181,7 +181,7 @@ export const DIGITAL_LIBRARY: EbookMetadata[] = [
     isUnlocked: false,
     pages: 40,
     readTimeMin: 30,
-    description: "Mengoptimasi Headline, About, dan Experience di LinkedIn untuk melewati gerbang SDM perusahaan dan langsung bernegosiasi dengan CEO."
+    description: "Ketika proposal Anda tersangkut pada meja satpam atau staf administrasi, Anda telah kalah bernegosiasi. B2B Profiling membawa Anda mendobrak gerbang isolasi C-Level perusahaan kaliber raksasa langsung menggunakan LinkedIn. Sempurnakan arsitektur Headline, About, dan Storytelling Experience Anda, mengubah profil kusam menjadi magnet Enterprise. Melalui skema Masterclass ini, saya akan tunjukkan 3 baris pesan InMail yang tak pernah gagal memaksa CEO merespon undangan kopi Anda dalam 24 jam pertama."
   },
   {
     id: "eb-011",
@@ -193,6 +193,6 @@ export const DIGITAL_LIBRARY: EbookMetadata[] = [
     isUnlocked: false,
     pages: 58,
     readTimeMin: 45,
-    description: "Audit Ouroboros: Cara mengunci bisnis dari keruntuhan operasional, kegagalan tim, dan ancaman kompetitor melalui Quality Control yang kejam."
+    description: "Pertumbuhan yang tidak diaudit adalah kanker yang membunuh dari dalam. Ouroboros Standard adalah kitab hitam mitigasi yang diciptakan untuk mengunci pintu keluar dari segala bentuk keruntuhan operasional dan blunder mematikan. Mulai dari membangun UX prosedur berlapis, hingga menyiagakan jaring Quality Control yang tak pandang bulu terhadap manajemen kejam. Buku ini tidak hanya menyelamatkan bisnis miliaran Anda dari kebangkrutan mendadak, tapi mensterilkan ancaman musuh yang mendompleng di dalam tim."
   }
 ];

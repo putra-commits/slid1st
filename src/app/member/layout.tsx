@@ -9,10 +9,12 @@ export default function MemberLayout({ children }: { children: React.ReactNode }
         <div className="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-4">
              <div>
-                 <Link href="/member/library" className="text-xl font-black text-[#1e3a8a] tracking-[0.2em] uppercase hover:text-amber-600 transition-colors flex items-center gap-2">
-                    BERNAS <span className="text-amber-500 text-sm font-black tracking-widest">MEMBER</span>
+                 <Link href="/member/library" className="text-xl font-black text-[#1e3a8a] tracking-widest hover:text-[#1e3a8a]/80 transition-colors flex items-center">
+                    <div className="w-8 h-8 rounded-full bg-[#1e3a8a] text-white flex items-center justify-center font-serif font-black text-xl mr-2 pb-0.5">B</div>
+                    BERNAS
+                    <span className="text-amber-500 text-sm font-black tracking-widest ml-1 mt-0.5 border-l-2 border-gray-200 pl-2">MEMBER</span>
                  </Link>
-                 <span className="block text-[8px] font-bold uppercase tracking-[0.2em] text-gray-500">BERNAS Digital Library</span>
+                 <span className="block text-[8px] font-bold uppercase tracking-[0.2em] text-gray-400 ml-11 -mt-0.5">Sovereign Digital Library</span>
              </div>
           </div>
           <div className="flex items-center gap-6">
