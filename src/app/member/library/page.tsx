@@ -2,74 +2,95 @@ import Link from 'next/link';
 import { DIGITAL_LIBRARY } from '@/lib/mock-ebooks';
 
 export default function LibraryPage() {
+  // Define vibrant aesthetic gradients for each book cover base
+  const premiumGradients = [
+    "from-blue-600 to-indigo-900",
+    "from-emerald-600 to-teal-900",
+    "from-rose-600 to-red-900",
+    "from-amber-500 to-orange-800",
+    "from-purple-600 to-violet-900",
+    "from-cyan-600 to-blue-900",
+    "from-pink-600 to-rose-900",
+    "from-slate-700 to-slate-900",
+    "from-fuchsia-600 to-purple-900",
+  ];
+
   return (
-    <div className="max-w-7xl mx-auto px-6 py-12">
+    <div className="max-w-[1400px] mx-auto px-6 py-12">
       <div className="mb-12">
-        <h1 className="text-3xl md:text-5xl font-black text-white font-headline uppercase tracking-tighter mb-4">Digital Library</h1>
-        <p className="text-slate-400 font-medium max-w-2xl text-sm leading-relaxed">
-           Akses ke 100+ blueprint rahasia untuk memenangkan persaingan bisnis digital, menembus karir eksekutif global, dan meningkatkan <i>Revenue</i> Anda.
-        </p>
+        <h1 className="text-4xl md:text-5xl font-black text-[#1e3a8a] uppercase tracking-tight mb-4">Pustaka Digital</h1>
+        <p className="text-gray-500 font-medium text-lg max-w-2xl">Akses eksklusif mahakarya literatur dan cetak biru bisnis digital dari Sovereign Ecosystem BERNAS.id.</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {DIGITAL_LIBRARY.map((ebook, idx) => (
-          <Link key={ebook.id} href={`/member/ebooks/${ebook.slug}`} className="group flex flex-col bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-amber-500/50 transition-all shadow-xl hover:shadow-amber-500/10">
-             {/* Premium Book Thumbnail Area (Kindle Style) */}
-             <div className="relative h-72 bg-slate-900 border-b border-slate-800 flex items-center justify-center p-6 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-b from-slate-800/50 to-slate-900 z-0"></div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-12">
+        {DIGITAL_LIBRARY.map((ebook, idx) => {
+          const bgGradient = premiumGradients[idx % premiumGradients.length];
+          return (
+            <Link key={ebook.id} href={`/member/ebooks/${ebook.slug}`} className="group flex flex-col items-center bg-white border border-gray-100 rounded-xl p-8 hover:border-blue-200 transition-all shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_40px_rgba(29,78,216,0.1)]">
+               
+               {/* Authentic 3D Book Render */}
+               <div className="relative w-[140px] h-[200px] mb-8 transition-transform duration-500 transform group-hover:-translate-y-4 group-hover:scale-105" style={{ perspective: '1200px' }}>
+                   
+                   {/* 3D Container (Rotated to show right Pages edge) */}
+                   <div className="w-full h-full relative" style={{ transformStyle: 'preserve-3d', transform: 'rotateY(-25deg) rotateX(5deg)' }}>
+                       
+                       {/* Drop Shadow Base */}
+                       <div className="absolute -bottom-2 -left-2 w-[110%] h-4 bg-black/30 blur-md" style={{ transform: 'translateZ(-20px)' }}></div>
 
-                {/* Book Object */}
-                <div className="relative w-[130px] h-[180px] z-10 transition-transform duration-500 ease-in-out group-hover:scale-105 group-hover:-translate-y-2 shadow-[0_20px_40px_rgba(0,0,0,0.6)] rounded-sm border border-slate-700 overflow-hidden bg-slate-950">
-                    <img src={ebook.coverImage} alt={ebook.title} className="absolute inset-0 w-full h-full object-cover opacity-70 mix-blend-overlay group-hover:opacity-100 group-hover:mix-blend-normal transition-all duration-500" />
-                    
-                    {/* Typography Overlay */}
-                    <div className="absolute inset-0 flex flex-col justify-end p-4 bg-gradient-to-t from-slate-950 via-slate-900/80 to-transparent">
-                        <h4 className="text-white font-black leading-tight text-xs drop-shadow-lg mb-1.5 line-clamp-3">{ebook.title}</h4>
-                        <div className="w-4 h-0.5 bg-amber-500 mb-1.5"></div>
-                        <p className="text-amber-500 font-bold text-[7px] uppercase tracking-widest drop-shadow-md">Putu Putrayasa</p>
-                    </div>
+                       {/* Front Cover */}
+                       <div className={`absolute inset-0 bg-gradient-to-br ${bgGradient} rounded-r-sm overflow-hidden border border-white/20`} style={{ transform: 'translateZ(15px)' }}>
+                            {/* Abstract Image Overlay (Blend Mode for creativity) */}
+                            <img src={ebook.coverImage} alt={ebook.title} className="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
+                            
+                            {/* Top Title Overlay */}
+                            <div className="absolute top-0 inset-x-0 p-4">
+                                <h4 className="text-white font-black leading-snug text-xs drop-shadow-md">{ebook.title}</h4>
+                            </div>
 
-                    {/* Book Highlight / Gloss */}
-                    <div className="absolute top-0 left-0 bottom-0 w-8 bg-gradient-to-r from-white/20 via-transparent to-transparent"></div>
-                    <div className="absolute top-0 right-0 bottom-0 w-[1px] bg-white/20"></div>
-                </div>
+                            {/* Bottom Author Overlay */}
+                            <div className="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
+                                <div className="w-6 h-0.5 bg-white/50 mb-2"></div>
+                                <p className="text-white font-bold text-[8px] uppercase tracking-widest drop-shadow-md">Putu Putrayasa</p>
+                            </div>
 
-                {/* Badge Overlay (Top Left) */}
-                <div className="absolute top-4 left-4 z-20 bg-slate-900/90 backdrop-blur-sm text-white text-[9px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full border border-slate-700 shadow-xl">
-                    {ebook.category}
-                </div>
+                            {/* Plastic Wrap Gloss */}
+                            <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                       </div>
 
-                {/* Status Indicator (Top Right) */}
-                {!ebook.isUnlocked && (
-                   <div className="absolute top-4 right-4 z-20 bg-red-500 text-white text-[9px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full shadow-[0_0_20px_rgba(239,68,68,0.4)] border border-red-500/50">
-                     🔒 Premium
+                       {/* Spine (Left side, mostly hidden by rotation, but creates depth) */}
+                       <div className={`absolute top-0 left-0 h-full w-[30px] bg-gradient-to-b ${bgGradient} filter brightness-75 border-y border-l border-white/10`} style={{ transformOrigin: 'left', transform: 'rotateY(-90deg) translateZ(15px)' }}></div>
+
+                       {/* Pages (Right Edge - The white paper block!) */}
+                       <div className="absolute top-0 bottom-0 right-0 w-[30px] bg-[#f8f9fa] border-y border-r border-gray-300 flex" style={{ transformOrigin: 'right', transform: 'rotateY(90deg) translateZ(15px)' }}>
+                           <div className="w-full h-full border-l border-r border-gray-200/50 flex flex-row justify-evenly px-0.5">
+                               <div className="w-px h-full bg-gray-300"></div>
+                               <div className="w-px h-full bg-gray-300 mt-1"></div>
+                               <div className="w-px h-full bg-gray-300 mb-1"></div>
+                           </div>
+                       </div>
+                       
+                       {/* Top Pages (Top Edge) */}
+                       <div className="absolute top-0 left-0 w-full h-[30px] bg-[#e9ecef] border border-gray-300" style={{ transformOrigin: 'top', transform: 'rotateX(90deg) translateZ(15px)' }}></div>
                    </div>
-                )}
-             </div>
+               </div>
 
-             {/* Content Area */}
-             <div className="p-6 flex-1 flex flex-col">
-                <h3 className="text-lg font-black text-white leading-tight mb-3 group-hover:text-amber-500 transition-colors line-clamp-2">
-                    {ebook.title}
-                </h3>
-                <p className="text-slate-400 text-xs leading-relaxed font-medium mb-6 line-clamp-3">
-                    {ebook.description}
-                </p>
-
-                <div className="mt-auto border-t border-slate-800 pt-4 flex items-center justify-between text-[10px] font-bold text-slate-500 uppercase tracking-widest">
-                    <div className="flex items-center gap-4">
-                        <span>{ebook.pages} Halaman</span>
-                        <span>{ebook.readTimeMin} Menit</span>
-                    </div>
-                    {ebook.isUnlocked ? (
-                        <span className="text-emerald-500 font-black">BACA →</span>
-                    ) : (
-                        <span className="text-amber-500 font-black">UNLOCK</span>
-                    )}
-                </div>
-             </div>
-          </Link>
-        ))}
+               {/* Meta Info */}
+               <div className="w-full text-center mt-auto flex flex-col items-center gap-2">
+                  <span className="text-[9px] font-black uppercase tracking-widest text-[#1e3a8a] border border-[#1e3a8a]/20 px-3 py-1 rounded-full">
+                     {ebook.category}
+                  </span>
+                  
+                  {ebook.isUnlocked ? (
+                     <span className="text-xs font-bold text-gray-500 mt-1">Tersedia (Gratis)</span>
+                  ) : (
+                     <div className="flex items-center gap-1.5 mt-1 text-rose-600 font-bold text-xs">
+                        <span className="text-[10px]">🔒</span> Premium
+                     </div>
+                  )}
+               </div>
+            </Link>
+          );
+        })}
       </div>
     </div>
   );
