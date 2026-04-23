@@ -10,7 +10,8 @@ import * as fs from 'fs';
 
 // Coba baca .env.local dari root project atau environment terkait
 dotenv.config({ path: path.resolve(process.cwd(), '.env.local') });
-dotenv.config({ path: 'd:/FullStack/OmniCommander/.env.local' }); // Fallback to OmniCommander key
+dotenv.config({ path: 'd:/FullStack/alchemist/.env.local' }); // Alchem1st (repo utama)
+dotenv.config({ path: 'd:/FullStack/OmniCommander/.env.local' }); // Fallback folder arsip
 
 const UNIPILE_URL = process.env.UNIPILE_BASE_URL || "https://api36.unipile.com:16667";
 const UNIPILE_KEY = process.env.UNIPILE_MASTER_KEY || process.env.UNIPILE_API_KEY || '';

@@ -7,11 +7,38 @@ import Link from 'next/link';
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
+  const [isCheckout, setIsCheckout] = useState(false);
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '' });
+  const [loading, setLoading] = useState(false);
+  const [referralId, setReferralId] = useState<string | null>(null);
 
   useEffect(() => {
     console.log("[DEBUG1ST] Home: Component mounted. Activating Sovereign UI...");
     setMounted(true);
+    
+    // Auto-capture Affiliate Referral from URL (?ref=ID)
+    const params = new URLSearchParams(window.location.search);
+    const ref = params.get('ref');
+    if (ref) {
+      console.log(`[SLID1ST AFFILIATE] Referral Code Detected: ${ref}`);
+      setReferralId(ref);
+    }
   }, []);
+
+  const handleCheckout = (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    // Simulate transaction processing then redirect to BERNAS.id for membership
+    setTimeout(() => {
+      setLoading(false);
+      let redirectUrl = `https://bernas.id/klaim-masterclass?email=${encodeURIComponent(formData.email)}`;
+      // Append Referral ID to credit the affiliate member
+      if (referralId) {
+        redirectUrl += `&ref=${encodeURIComponent(referralId)}`;
+      }
+      window.location.href = redirectUrl;
+    }, 2500);
+  };
 
   if (!mounted) {
     return <div className="min-h-screen bg-[#0A0A10]" />;
@@ -126,24 +153,64 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Offer / CTA Section */}
+      {/* Offer / Lead Magnet Section */}
       <section id="checkout" className="relative z-10 w-full max-w-4xl mx-auto px-6 py-24">
-        <div className="p-10 rounded-3xl bg-gradient-to-b from-white/5 to-transparent border border-white/10 text-center relative overflow-hidden">
+        <div className="p-10 rounded-3xl bg-gradient-to-b from-white/5 to-transparent border border-white/10 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-[#00F0FF]/10 blur-[100px]" />
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Invest in Your Remote Future</h2>
-          <p className="text-gray-400 mb-8 max-w-xl mx-auto">
-            30+ pages of pure insights. No fluff. Just the exact steps to transition into an Agentic AI powered Remote Professional.
-          </p>
-          <div className="flex flex-col items-center gap-4">
-            <span className="text-4xl font-extrabold text-[#00F0FF]">Rp 8.500</span>
-            <span className="text-sm text-gray-500 line-through">Normal Price: Rp 250.000</span>
-            <button className="mt-4 px-12 py-4 rounded-xl bg-white text-black font-bold text-lg hover:bg-gray-200 transition-colors flex items-center gap-2">
-              Get Access <Share2 size={20} />
-            </button>
-            <p className="text-xs text-gray-500 mt-4 max-w-sm">
-              * Secure payment via Midtrans. You will receive an email with direct access to the Masterclass blueprint and Alchem1st ecosystem.
+          
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4">Mulai Karir Remote Anda</h2>
+            <p className="text-gray-400 max-w-xl mx-auto">
+              Blueprint Masterclass Agentic AI 30+ halaman eksklusif. Dapatkan akses *membership* premium yang di *host* langsung di infrastruktur BERNAS.id.
             </p>
           </div>
+
+          {!isCheckout ? (
+            <div className="flex flex-col items-center gap-4 text-center">
+              <span className="text-4xl font-extrabold text-[#00F0FF]">Rp 8.500</span>
+              <span className="text-sm text-gray-500 line-through">Normal: Rp 250.000</span>
+              <button 
+                onClick={() => setIsCheckout(true)}
+                className="mt-4 px-12 py-4 rounded-xl bg-gradient-to-r from-[#00F0FF] to-[#4A00E0] text-white font-bold text-lg hover:shadow-[0_0_30px_rgba(0,240,255,0.4)] transition-all flex items-center gap-2"
+              >
+                Klaim Masterclass Sekarang <ArrowRight size={20} />
+              </button>
+            </div>
+          ) : (
+            <form onSubmit={handleCheckout} className="max-w-md mx-auto flex flex-col gap-4">
+              <div className="p-4 bg-black/40 border border-white/10 rounded-xl mb-4 text-sm text-gray-300 text-center">
+                Investasi: <strong className="text-white">Rp 8.500</strong>. Anda akan diarahkan ke <span className="text-blue-400 font-bold">BERNAS.id</span> untuk mengakses Membership Masterclass setelah pembayaran.
+              </div>
+              <input 
+                type="text" required placeholder="Nama Lengkap" 
+                className="w-full px-5 py-4 rounded-xl bg-white/5 border border-white/10 focus:border-[#00F0FF] focus:outline-none transition-colors"
+                value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})}
+              />
+              <input 
+                type="email" required placeholder="Email Utama" 
+                className="w-full px-5 py-4 rounded-xl bg-white/5 border border-white/10 focus:border-[#00F0FF] focus:outline-none transition-colors"
+                value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})}
+              />
+              <input 
+                type="tel" required placeholder="Nomor WhatsApp" 
+                className="w-full px-5 py-4 rounded-xl bg-white/5 border border-white/10 focus:border-[#00F0FF] focus:outline-none transition-colors"
+                value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})}
+              />
+              <button 
+                type="submit" disabled={loading}
+                className="w-full mt-2 px-8 py-4 rounded-xl bg-gradient-to-r from-[#00F0FF] to-[#4A00E0] text-white font-bold text-lg hover:shadow-[0_0_20px_rgba(0,240,255,0.3)] transition-all disabled:opacity-50 flex justify-center items-center"
+              >
+                {loading ? <span className="animate-pulse">Memproses Data...</span> : "Lanjut ke Pembayaran"}
+              </button>
+              <button 
+                type="button" onClick={() => setIsCheckout(false)}
+                className="w-full text-sm text-gray-500 hover:text-white mt-2"
+              >
+                Batalkan
+              </button>
+            </form>
+          )}
+
         </div>
       </section>
 
